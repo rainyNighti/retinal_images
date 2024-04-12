@@ -7,7 +7,8 @@ img_names = os.listdir(root)
 # 补充某些无路径的图
 for i in range(len(img_names)):
     if img_names[i].find('.') == -1:
-        img_names[i] += '.jpg'
+        os.rename(os.path.join(root, img_names[i]), os.path.join(root, img_names[i]+'.jpg'))
+        img_names[i] += '.jpg'       
 
 # 构建一个索引txt
 with open(txt_path, 'w') as f:
